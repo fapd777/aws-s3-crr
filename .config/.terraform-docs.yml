@@ -1,0 +1,78 @@
+version: ""
+
+formatter: markdown table
+
+name: aws-s3-crr
+
+content: |-
+
+  # aws-s3-cross-region-replication
+
+  This repository is meant to hold all of the relevant stateful Terraform code
+  for an AWS S3 bucket with Cross Region Replication .
+
+  **AWS account ID:** 381511845811
+
+  ## Deployment
+
+  To quickly initialize the current Terraform configuration and create or update
+  the associated infrastructure, try the following commands:
+
+  > **_NOTE:_**  You must have a valid AWS session token for the following
+  commands to complete successfully.
+
+  ### Development (dev)
+
+  Prepare your working directory for other Terraform commands:
+  ```bash
+  terraform init -backend-config=./init-tfvars/dev.tfvars
+  ```
+  Show changes required by the current configuration:
+  ```bash
+  terraform plan -var-file ./apply-tfvars/dev.tfvars
+  ```
+  Create or update infrastructure:
+  ```bash
+  terraform apply -var-file ./apply-tfvars/dev.tfvars
+  ```
+   
+  ## Documentation
+
+  This repo is self documenting via Terraform Docs, please see the note at the
+  bottom.
+
+  The `.config/.terraform-docs.yml` file auto generates the `README.md` file
+
+  {{ .Requirements }}
+
+  {{ .Resources }}
+
+  {{ .Modules }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  ---
+
+  > **_NOTE:_**  Manual changes to the README will be overwritten when the
+  documentation is updated. To update the documentation, run:
+  ```bash
+  terraform-docs --config .config/.terraform-docs.yml .
+  ```
+
+sections:
+  show:
+    - requirements
+    - resources
+    - modules
+    - inputs
+    - outputs
+
+sort:
+  enabled: true
+  by: name
+
+output:
+  file: README.md
+  mode: replace
