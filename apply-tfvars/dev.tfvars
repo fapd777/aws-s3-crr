@@ -1,0 +1,8 @@
+### Miscellaneous
+
+env_name       = "dev"
+#logging_bucket = "solvd-aws-s3-crr-dev-logging-us-east-2"
+org            = "solvd"
+name_prefix    = "aws-s3-crr"
+region         = "us-east-2"
+source_repo    = "https://github.com/fapd777/aws-s3-crr"
