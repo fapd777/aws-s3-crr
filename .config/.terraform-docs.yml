@@ -61,6 +61,12 @@ content: |-
   terraform-docs --config .config/.terraform-docs.yml .
   ```
 
+  ## Pre-commit - local
+  ```bash
+  docker run --rm -v "$(pwd):/lint" -w /lint \
+  ghcr.io/antonbabenko/pre-commit-terraform:latest \
+  run -a
+  ```
 sections:
   show:
     - requirements
