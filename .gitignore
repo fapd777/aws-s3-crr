@@ -16,5 +16,5 @@
 .DS_Store
 
 # Pre-Commit files
-.pre-commit-config.yaml
-.prettierignore
+#.pre-commit-config.yaml
+#.prettierignore

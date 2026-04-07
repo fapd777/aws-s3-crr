@@ -92,4 +92,11 @@ documentation is updated. To update the documentation, run:
 ```bash
 terraform-docs --config .config/.terraform-docs.yml .
 ```
+
+## Pre-commit - local
+```bash
+docker run --rm -v "$(pwd):/lint" -w /lint \
+ghcr.io/antonbabenko/pre-commit-terraform:latest \
+run -a
+```
 <!-- END_TF_DOCS -->
