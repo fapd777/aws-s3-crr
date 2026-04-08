@@ -1,0 +1,10 @@
+name: Terraform plan
+
+on:
+#  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: fapd777/terraform-workflow/.github/workflows/terraform-plan.yml@main
+    secrets: inherit
