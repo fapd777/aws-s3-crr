@@ -10,6 +10,6 @@ on:
 
 jobs:
   call-terraform-plan:
-    uses: your-org/your-reusable-repo/.github/workflows/terraform-plan.yml@main
+    uses: fapd777/terraform-workflow/.github/workflows/terraform-plan.yml@main
     with:
       aws_sts_credentials_json: ${{ inputs.aws_sts_credentials_json }}
