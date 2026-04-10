@@ -18,6 +18,9 @@ jobs:
         run: |
           echo "terraform_version=$(tr -d '[:space:]' < .terraform-version)" >> "$GITHUB_OUTPUT"
   call-terraform-plan:
+    needs: read-terraform-version
     uses: fapd777/terraform-workflow/.github/workflows/terraform-plan.yml@main
+    with:
+      terraform_version: ${{ needs.read-terraform-version.outputs.terraform_version }}
     secrets:
       aws_sts_credentials_json: ${{ secrets.AWS_STS_CREDENTIALS_JSON }}
