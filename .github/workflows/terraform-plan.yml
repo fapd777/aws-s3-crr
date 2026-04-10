@@ -4,6 +4,19 @@ on:
   workflow_dispatch:
 
 jobs:
+  read-terraform-version:
+    name: "Read Terraform version"
+    runs-on: ubuntu-latest
+    outputs:
+      terraform_version: ${{ steps.tf_version.outputs.terraform_version }}
+    steps:
+      - name: Checkout caller repository
+        uses: actions/checkout@v4
+
+      - name: Read .terraform-version
+        id: tf_version
+        run: |
+          echo "terraform_version=$(tr -d '[:space:]' < .terraform-version)" >> "$GITHUB_OUTPUT"
   call-terraform-plan:
     uses: fapd777/terraform-workflow/.github/workflows/terraform-plan.yml@main
     secrets:
