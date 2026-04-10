@@ -2,14 +2,9 @@ name: "Run Terraform plan"
 
 on:
   workflow_dispatch:
-    inputs:
-      aws_sts_credentials_json:
-        description: "AWS STS credentials (JSON):"
-        required: true
-        type: string
 
 jobs:
   call-terraform-plan:
     uses: fapd777/terraform-workflow/.github/workflows/terraform-plan.yml@main
-    with:
-      aws_sts_credentials_json: ${{ inputs.aws_sts_credentials_json }}
+    secrets:
+      aws_sts_credentials_json: ${{ secrets.AWS_STS_CREDENTIALS_JSON }}
