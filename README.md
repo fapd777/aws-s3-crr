@@ -94,9 +94,12 @@ that GitHub Actions performs when a pull request is created or updated,
 you can create the following alias from your shell:
 
 ```bash
-alias pre-commit-run="docker run --rm -v "$(pwd):/lint" -w /lint \
+alias pre-commit-run="docker run --rm \
+-v "$(pwd):/lint" \
+-w /lint \
+--entrypoint /bin/sh \
 ghcr.io/antonbabenko/pre-commit-terraform:latest \
-run -a"
+-c "tflint --init && pre-commit run -a"
 ```
 ```bash
 pre-commit-run
