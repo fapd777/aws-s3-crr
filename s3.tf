@@ -42,45 +42,45 @@ resource "aws_s3_bucket_lifecycle_configuration" "source" {
 # S3 Bucket - Destination (us-west-2)
 ################################################################################
 
-# resource "aws_s3_bucket" "destination" {
-#   provider = aws.us-west-2
-#   bucket   = "${var.org}-${var.name_prefix}-${var.env_name}-destination"
-# }
+resource "aws_s3_bucket" "destination" {
+  region = aws.us-west-2
+  bucket   = "${var.org}-${var.name_prefix}-${var.env_name}-destination"
+}
 
-# resource "aws_s3_bucket_public_access_block" "destination" {
-#   provider = aws.us-west-2
-#   bucket   = aws_s3_bucket.destination.id
+resource "aws_s3_bucket_public_access_block" "destination" {
 
-#   block_public_acls       = true
-#   block_public_policy     = true
-#   ignore_public_acls      = true
-#   restrict_public_buckets = true
-# }
+  bucket   = aws_s3_bucket.destination.id
 
-# resource "aws_s3_bucket_versioning" "destination" {
-#   provider = aws.us-west-2
-#   bucket   = aws_s3_bucket.destination.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
 
-#   versioning_configuration {
-#     status = "Enabled"
-#   }
-# }
+resource "aws_s3_bucket_versioning" "destination" {
 
-# resource "aws_s3_bucket_lifecycle_configuration" "destination" {
-#   provider = aws.us-west-2
-#   bucket   = aws_s3_bucket.destination.id
+  bucket   = aws_s3_bucket.destination.id
 
-#   rule {
-#     id     = "expire-objects-after-90-days"
-#     status = "Enabled"
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
 
-#     filter {}
+resource "aws_s3_bucket_lifecycle_configuration" "destination" {
 
-#     expiration {
-#       days = 90
-#     }
-#   }
-# }
+  bucket   = aws_s3_bucket.destination.id
+
+  rule {
+    id     = "expire-objects-after-90-days"
+    status = "Enabled"
+
+    filter {}
+
+    expiration {
+      days = 90
+    }
+  }
+}
 
 ################################################################################
 # S3 Cross-Region Replication
