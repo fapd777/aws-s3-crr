@@ -13,10 +13,10 @@ provider "aws" {
   }
 }
 
-provider "aws" {
-  alias  = "ca-central-1"
-  region = "ca-central-1"
-  default_tags {
-    tags = local.common_tags
-  }
-}
+# provider "aws" {
+#   alias  = "ca-central-1"
+#   region = "ca-central-1"
+#   default_tags {
+#     tags = local.common_tags
+#   }
+# }
