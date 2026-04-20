@@ -5,8 +5,6 @@
 This repository is meant to hold all of the relevant stateful Terraform code
 for an AWS S3 bucket with Cross Region Replication .
 
-**AWS account ID:** 381511845811
-
 ## Deployment
 
 To quickly initialize the current Terraform configuration and create or update
@@ -42,7 +40,7 @@ The `.config/.terraform-docs.yml` file auto generates the `README.md` file
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.0 |
 
 ## Resources
 
