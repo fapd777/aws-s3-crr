@@ -5,8 +5,6 @@
 This repository is meant to hold all of the relevant stateful Terraform code
 for an AWS S3 bucket with Cross Region Replication .
 
-**AWS account ID:** 381511845811
-
 ## Deployment
 
 To quickly initialize the current Terraform configuration and create or update
