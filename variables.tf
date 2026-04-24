@@ -2,6 +2,11 @@
 # Miscellaneous variables
 ################################################################################
 
+variable "aws_account_id" {
+  description = "AWS Account ID number"
+  type        = string
+}
+
 variable "env_name" {
   description = "Environment name string to be used for decisions and name generation"
   type        = string

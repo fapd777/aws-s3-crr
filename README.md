@@ -53,12 +53,15 @@ The `.config/.terraform-docs.yml` file auto generates the `README.md` file
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_s3_bucket_logging"></a> [s3\_bucket\_logging](#module\_s3\_bucket\_logging) | git::https://github.com/fapd777/terraform-module-s3-bucket-logging.git | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_aws_account_id"></a> [aws\_account\_id](#input\_aws\_account\_id) | AWS Account ID number | `string` | n/a | yes |
 | <a name="input_env_name"></a> [env\_name](#input\_env\_name) | Environment name string to be used for decisions and name generation | `string` | n/a | yes |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | String to use as prefix on object names | `string` | n/a | yes |
 | <a name="input_org"></a> [org](#input\_org) | Organization name | `string` | n/a | yes |
