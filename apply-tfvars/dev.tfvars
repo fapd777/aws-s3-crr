@@ -1,6 +1,7 @@
 ### Miscellaneous
 
-env_name = "dev"
+aws_account_id = "381511845811"
+env_name       = "dev"
 #logging_bucket = "solvd-aws-s3-crr-dev-logging-us-east-2"
 org         = "solvd"
 name_prefix = "aws-s3-crr"
