@@ -12,13 +12,18 @@ variable "env_name" {
   type        = string
 }
 
-variable "org" {
-  description = "Organization name"
+variable "logging_bucket" {
+  description = "Bucket used for centralized logging."
   type        = string
 }
 
 variable "name_prefix" {
   description = "String to use as prefix on object names"
+  type        = string
+}
+
+variable "org" {
+  description = "Organization name"
   type        = string
 }
 
@@ -37,8 +42,3 @@ variable "source_repo" {
   description = "name of repo which holds this code"
   type        = string
 }
-
-# variable "logging_bucket" {
-#   description = "Bucket used for centralized logging."
-#   type        = string
-# }
