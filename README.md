@@ -35,6 +35,32 @@ bottom.
 
 The `.config/.terraform-docs.yml` file auto generates the `README.md` file
 
+> **_NOTE:_**  Manual changes to the README will be overwritten when the
+documentation is updated. To update the documentation, run:
+```bash
+terraform-docs --config .config/.terraform-docs.yml .
+```
+
+## Pre-commit
+
+Project maintainers can take advantage of `pre-commit` to automate various
+tasks before commiting changes to repositories. To easily recreate the checks
+that GitHub Actions performs when a pull request is created or updated,
+you can create the following alias from your shell:
+
+```bash
+alias pre-commit-run=\
+'docker run --rm \
+-v "$(pwd):/lint" \
+-w /lint \
+--entrypoint /bin/sh \
+ghcr.io/antonbabenko/pre-commit-terraform:latest \
+-c "tflint --init && pre-commit run -a"'
+```
+```bash
+pre-commit-run
+```
+
 ## Requirements
 
 | Name | Version |
@@ -86,30 +112,4 @@ The `.config/.terraform-docs.yml` file auto generates the `README.md` file
 | <a name="output_terraform_state_kms_key_arn"></a> [terraform\_state\_kms\_key\_arn](#output\_terraform\_state\_kms\_key\_arn) | kms key to use for encrytption when storing/reading terraform state configuration |
 
 ---
-
-> **_NOTE:_**  Manual changes to the README will be overwritten when the
-documentation is updated. To update the documentation, run:
-```bash
-terraform-docs --config .config/.terraform-docs.yml .
-```
-
-## Pre-commit
-
-Project maintainers can take advantage of `pre-commit` to automate various
-tasks before commiting changes to repositories. To easily recreate the checks
-that GitHub Actions performs when a pull request is created or updated,
-you can create the following alias from your shell:
-
-```bash
-alias pre-commit-run=\
-'docker run --rm \
--v "$(pwd):/lint" \
--w /lint \
---entrypoint /bin/sh \
-ghcr.io/antonbabenko/pre-commit-terraform:latest \
--c "tflint --init && pre-commit run -a"'
-```
-```bash
-pre-commit-run
-```
 <!-- END_TF_DOCS -->
