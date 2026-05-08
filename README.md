@@ -81,8 +81,8 @@ pre-commit-run
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_s3_bucket_logging"></a> [s3\_bucket\_logging](#module\_s3\_bucket\_logging) | git::https://github.com/fapd777/terraform-module-s3-bucket-logging.git | n/a |
-| <a name="module_terraform_state"></a> [terraform\_state](#module\_terraform\_state) | git::https://github.com/fapd777/terraform-module-state-s3-bucket.git | v1.0.0 |
+| <a name="module_s3_bucket_logging"></a> [s3\_bucket\_logging](#module\_s3\_bucket\_logging) | git::https://github.com/fapd777/terraform-module-s3-bucket-logging.git | v20260508 |
+| <a name="module_terraform_state"></a> [terraform\_state](#module\_terraform\_state) | git::https://github.com/fapd777/terraform-module-state-s3-bucket.git | v20260508 |
 
 ## Inputs
 
