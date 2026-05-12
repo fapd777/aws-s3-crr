@@ -2,13 +2,18 @@
 # Miscellaneous variables
 ################################################################################
 
-variable "developer" {
-  description = "Developer email"
+variable "aws_account_id" {
+  description = "AWS Account ID number"
   type        = string
 }
 
 variable "env_name" {
   description = "Environment name string to be used for decisions and name generation"
+  type        = string
+}
+
+variable "logging_bucket" {
+  description = "Bucket used for centralized logging."
   type        = string
 }
 
@@ -22,10 +27,11 @@ variable "org" {
   type        = string
 }
 
-variable "provisioner" {
-  description = "Infrastructure provisioning method"
-  type        = string
-}
+# variable "name_suffix" {
+#   description = "String to append to object names. This is optional, so start with dash if using."
+#   type        = string
+#   default     = ""
+# }
 
 variable "region" {
   description = "AWS Region to target"

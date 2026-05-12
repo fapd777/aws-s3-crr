@@ -1,13 +1,14 @@
 <!-- BEGIN_TF_DOCS -->
 
-# aws-s3-vpn-site-to-site
+# aws-s3-cross-region-replication
 
 This repository is meant to hold all of the relevant stateful Terraform code
-for an AWS VPN Site-to-Site.
+for an AWS S3 bucket with Cross Region Replication .
 
 ## Deployment
 
-To quickly initialize the current Terraform configuration and create or update the associated infrastructure, try the following commands:
+To quickly initialize the current Terraform configuration and create or update
+the associated infrastructure, try the following commands:
 
 > **_NOTE:_**  You must have a valid AWS session token for the following
 commands to complete successfully.
@@ -71,20 +72,27 @@ pre-commit-run
 
 | Name | Type |
 |------|------|
+| [aws_s3_bucket.source](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
+| [aws_s3_bucket_lifecycle_configuration.source](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_lifecycle_configuration) | resource |
+| [aws_s3_bucket_public_access_block.source](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
+| [aws_s3_bucket_versioning.source](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning) | resource |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_s3_bucket_logging"></a> [s3\_bucket\_logging](#module\_s3\_bucket\_logging) | git::https://github.com/fapd777/terraform-module-s3-bucket-logging.git | v20260508 |
+| <a name="module_terraform_state"></a> [terraform\_state](#module\_terraform\_state) | git::https://github.com/fapd777/terraform-module-state-s3-bucket.git | v20260508 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_developer"></a> [developer](#input\_developer) | Developer email | `string` | n/a | yes |
+| <a name="input_aws_account_id"></a> [aws\_account\_id](#input\_aws\_account\_id) | AWS Account ID number | `string` | n/a | yes |
 | <a name="input_env_name"></a> [env\_name](#input\_env\_name) | Environment name string to be used for decisions and name generation | `string` | n/a | yes |
+| <a name="input_logging_bucket"></a> [logging\_bucket](#input\_logging\_bucket) | Bucket used for centralized logging. | `string` | n/a | yes |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | String to use as prefix on object names | `string` | n/a | yes |
 | <a name="input_org"></a> [org](#input\_org) | Organization name | `string` | n/a | yes |
-| <a name="input_provisioner"></a> [provisioner](#input\_provisioner) | Infrastructure provisioning method | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | AWS Region to target | `string` | n/a | yes |
 | <a name="input_source_repo"></a> [source\_repo](#input\_source\_repo) | name of repo which holds this code | `string` | n/a | yes |
 
@@ -98,6 +106,10 @@ No modules.
 | <a name="output_name_prefix"></a> [name\_prefix](#output\_name\_prefix) | string to prepend to all resource names |
 | <a name="output_org"></a> [org](#output\_org) | string to prepend to resource name - optional |
 | <a name="output_region"></a> [region](#output\_region) | region being used |
+| <a name="output_terraform_state_bucket"></a> [terraform\_state\_bucket](#output\_terraform\_state\_bucket) | s3 bucket to store terraform state |
+| <a name="output_terraform_state_config_s3_key"></a> [terraform\_state\_config\_s3\_key](#output\_terraform\_state\_config\_s3\_key) | key to use for terraform state key configuration - this is the s3 object key where the config will be stored |
+| <a name="output_terraform_state_dynamodb_table"></a> [terraform\_state\_dynamodb\_table](#output\_terraform\_state\_dynamodb\_table) | dynamodb table to control terraform locking |
+| <a name="output_terraform_state_kms_key_arn"></a> [terraform\_state\_kms\_key\_arn](#output\_terraform\_state\_kms\_key\_arn) | kms key to use for encrytption when storing/reading terraform state configuration |
 
 ---
 <!-- END_TF_DOCS -->
