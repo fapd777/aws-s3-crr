@@ -2,19 +2,18 @@ version: ""
 
 formatter: markdown table
 
-name: aws-s3-crr
+name: aws-vpn-s2s
 
 content: |-
 
-  # aws-s3-cross-region-replication
+  # aws-s3-vpn-site-to-site
 
   This repository is meant to hold all of the relevant stateful Terraform code
-  for an AWS S3 bucket with Cross Region Replication .
+  for an AWS VPN Site-to-Site.
 
   ## Deployment
 
-  To quickly initialize the current Terraform configuration and create or update
-  the associated infrastructure, try the following commands:
+  To quickly initialize the current Terraform configuration and create or update the associated infrastructure, try the following commands:
 
   > **_NOTE:_**  You must have a valid AWS session token for the following
   commands to complete successfully.

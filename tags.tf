@@ -1,8 +1,8 @@
 locals {
   common_tags = {
     Environment = var.env_name
-    Developer   = "fpedraza@solvd.com"
-    Provisioner = "Terraform"
+    Developer   = var.developer
+    Provisioner = var.provisioner
     SourceRepo  = var.source_repo
   }
 }
